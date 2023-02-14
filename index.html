@@ -4,18 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Library</title>
+    <title>myLibrary</title>
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="favicon/icons8-book-color-32.png"
+      type="image/x-icon"
+    />
   </head>
-  <body>
-    <button class="newbook">NEW BOOK</button>
+  <body id="body">
+    <header class="hero">
+      <p>myLibrary</p>
+      <button class="newbook">NEW BOOK</button>
+    </header>
+    <div class="overlay" id="overlay"></div>
     <div class="form-container" id="myForm">
       <form action="#">
         <h1>New Book</h1>
         <div class="title">
           <label for="title">Title</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" / required>
         </div>
         <div class="author">
           <label for="author">Author</label>
@@ -29,9 +38,33 @@
           <label for="year">Year</label>
           <input type="number" name="year" id="yearPub" />
         </div>
+        <div class="state">
+          <label for="read">Did you read the book?</label>
+          <span class="read-check"
+            ><input type="checkbox" name="read" id="read"
+          /></span>
+        </div>
         <button type="submit" class="submit-button">Add Book</button>
-        <button type="button" class="cancel-button" id="cancelBtn">Cancel</button>
+        <button type="button" class="cancel-button" id="cancelBtn">
+          Cancel
+        </button>
       </form>
+    </div>
+
+    <div class="card-container">
+        
+      <div class="card">
+        <p class="title">Atomic Habits</p>
+        <p class="author">James Clear</p>
+        <p class="pages">215 pages</p>
+        <p class="date">2015</p>
+        <div class="card-buttons">
+          <button class="read">read</button>
+          <button class="delete">delete</button>
+        </div>
+      </div>
+
+
     </div>
   </body>
 </html>

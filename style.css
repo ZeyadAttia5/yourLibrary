@@ -1,53 +1,183 @@
-.form-container{
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+* {
+  box-sizing: border-box;
 }
 
-form{
-    display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
-    align-items: center;
-    gap: 10px;
-    border: 1px solid black;
-    padding: 5px;
-    
+body {
+  background-color: #30e3ca;
+  margin: 0;
+  padding: 0%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;
+}   
+
+p {
+  margin: 0;
 }
 
-form>h1{
-    margin: 0px;
-    align-self: center;
-    justify-self: center;
-    grid-column: 1/-1;
+button {
+  border: none;
+  border-radius: 8px;
+  border-color: inherit;
+  padding: 10px;
+  cursor: pointer;
 }
 
-form > div{
-    display: grid;
-    grid-template-columns: 4rem 1fr;
+/* hero */
+.hero {
+  background-color: #11999e;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 4%;
+  padding-bottom: 7px;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px 1px 4px;
 }
-form>div>input{
-    grid-column: 2;
+.hero > p {
+  font-weight: 900;
+  font-size: 60px;
 }
-form>div>label{
-    grid-column: 1;
+.hero > button {
+  background-color: inherit;
+}
+.hero > button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.hero > button::before {
+  content: '➕';
+  padding-right: 3px;
 }
 
-form>button{
-    border: 1px solid black;
-    padding: 5px;
-    color: white;
-    font-size: 1.3rem;
+.form-container {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 40%;
+  right: 50%;
+  background-color: #40514e;
+  opacity: 100%;
+  width: fit-content;
+  height: fit-content;
+  z-index: 1;
 }
-.submit-button{
-    background-color: darkgray;
+
+form {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  align-items: center;
+  gap: 10px;
+  border: 1px solid black;
+  padding: 5px;
+  color: #e4f9f5;
 }
-.submit-button:hover{
-    background-color: gray;
+
+form > h1 {
+  margin: 0px;
+  align-self: center;
+  justify-self: center;
+  grid-column: 1/-1;
 }
-.cancel-button{
-    background-color: red;
+
+form > div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
 }
-.cancel-button:hover{
-    background-color: darkred;
+form > div > input {
+  grid-column: 2;
+}
+form > div > label {
+  grid-column: 1;
+}
+.state::before {
+  content: 'yes';
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+.read-check {
+  margin-left: 40%;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  height: 50%;
+  width: 50%;
+  display: flex;
+}
+.read-check > input {
+  flex: 1;
+}
+
+form > button {
+  border: 1px solid black;
+  padding: 5px;
+  color: white;
+  font-size: 1.3rem;
+}
+.submit-button {
+  background-color: darkgray;
+}
+.submit-button:hover {
+  background-color: gray;
+}
+.cancel-button {
+  background-color: red;
+}
+.cancel-button:hover {
+  background-color: darkred;
+}
+
+/* Cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  text-align: center;
+  padding: 0% 4% 5% 4%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-break: break-all;
+  /* border: 1px solid #40514e; */
+  padding: 5%;
+  border-radius: 8px;
+  background-color: #e4f9f5;
+  gap: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 4px;
+}
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.read {
+  background-color: rgba(148, 9, 9, 0.849);
+  color: #e4f9f5;
+}
+.delete {
+  background-color: #40514e;
+  color: #e4f9f5;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay.active {
+  display: block;
 }

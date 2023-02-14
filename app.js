@@ -7,10 +7,10 @@ function Book(title, author, dateOfPublication) {
 }
 
 function addBookToLibrary() {
-  let book = new Book();
-  book.title = prompt("What is the name of the book?");
-  book.author = prompt("Who is the author of the book?");
-  book.dateOfPublication = prompt("When was the book published?");
+  const book = new Book();
+  book.title = prompt('What is the name of the book?');
+  book.author = prompt('Who is the author of the book?');
+  book.dateOfPublication = prompt('When was the book published?');
   myLibrary.push(book);
 }
 
@@ -18,16 +18,18 @@ function printLibrary() {
   myLibrary.forEach((book) => console.log(book));
 }
 
-const newBookBtn = document.querySelector(".newbook");
-const cancelBtn = document.querySelector("#cancelBtn");
+const newBookBtn = document.querySelector('.newbook');
+const cancelBtn = document.querySelector('#cancelBtn');
 
-newBookBtn.addEventListener("click", newBookHandler);
-cancelBtn.addEventListener("click", closeBookHandler);
+newBookBtn.addEventListener('click', newBookHandler);
+cancelBtn.addEventListener('click', closeBookHandler);
 
 function newBookHandler() {
-  document.getElementById("myForm").style.display = "flex";
+  document.getElementById('myForm').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
 }
 
 function closeBookHandler() {
-  document.getElementById("myForm").style.display = "none";
+  document.getElementById('myForm').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
 }
