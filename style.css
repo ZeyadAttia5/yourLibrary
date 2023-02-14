@@ -17,7 +17,8 @@ p {
   margin: 0;
 }
 
-button {
+button,
+btn {
   border: none;
   border-radius: 8px;
   border-color: inherit;
@@ -28,7 +29,6 @@ button {
 /* hero */
 .hero {
   background-color: #11999e;
-  grid-row: 1;
   display: flex;
   align-items: center;
   justify-content: space-around;

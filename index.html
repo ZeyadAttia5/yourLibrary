@@ -20,7 +20,7 @@
     </header>
     <div class="overlay" id="overlay"></div>
     <div class="form-container" id="myForm">
-      <form action="#">
+      <form action="#" id="form">
         <h1>New Book</h1>
         <div class="title">
           <label for="title">Title</label>
@@ -30,11 +30,11 @@
           <label for="author">Author</label>
           <input type="text" name="author" id="author" />
         </div>
-        <div class="year">
+        <div class="pages">
           <label for="pages">Pages</label>
           <input type="number" name="pages" id="pages" />
         </div>
-        <div class="pages">
+        <div class="year">
           <label for="year">Year</label>
           <input type="number" name="year" id="yearPub" />
         </div>
@@ -44,7 +44,7 @@
             ><input type="checkbox" name="read" id="read"
           /></span>
         </div>
-        <button type="submit" class="submit-button">Add Book</button>
+        <button type="submit" class="submit-button" id="submission">Add Book</button>
         <button type="button" class="cancel-button" id="cancelBtn">
           Cancel
         </button>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="card-container">
-        
+
       <div class="card">
         <p class="title">Atomic Habits</p>
         <p class="author">James Clear</p>
