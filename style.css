@@ -166,6 +166,16 @@ form > button {
   background-color: rgba(148, 9, 9, 0.849);
   color: #e4f9f5;
 }
+.read::after {
+  content: 'read';
+}
+.not-read{
+  background-color: rgba(148, 9, 9, 0.649);
+  color: #e4f9f5;
+}
+.not-read::after {
+  content: 'not read';
+}
 .delete {
   background-color: #40514e;
   color: #e4f9f5;

@@ -5,26 +5,29 @@ function Book(title, author, pages, dateOfPublication) {
   this.author = author;
   this.pages = pages;
   this.dateOfPublication = dateOfPublication;
-  this.read = false;
 }
 
 function addBookToLibrary() {
   const book = new Book();
   const formBtn = document.querySelector('#submission');
   const form = document.querySelector('form');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-  });
-  formBtn.addEventListener('click', submissionHandler);
+  form.addEventListener('submit', submissionHandler);
   function submissionHandler(e) {
     e.preventDefault();
     book.title = form.querySelector('.title').querySelector('input').value;
     book.author = form.querySelector('.author').querySelector('input').value;
-    book.pages = `${form.querySelector('.pages').querySelector('input').value} pages`;
-    book.dateOfPublication = form.querySelector('.year').querySelector('input').value;
+    book.pages = `${
+      form.querySelector('.pages').querySelector('input').value
+    } pages`;
+    book.dateOfPublication = form
+      .querySelector('.year')
+      .querySelector('input').value;
+    book['read'] = document.getElementById('readFormCheck').checked;
     myLibrary.push(book);
     printLibrary(book);
+    form.reset();
     closeFormHandler();
+    form.removeEventListener('submit', submissionHandler);
   }
 }
 
@@ -45,9 +48,12 @@ function printLibrary(book) {
   const cardBtns = document.createElement('div');
   const readBtn = document.createElement('btn');
   const cancelBtn = document.createElement('btn');
-  readBtn.textContent = 'read';
+  readBtn.id = 'readStatus';
+  readBtn.addEventListener('click', readBtnHandler);
+  if (book.read === true) readBtn.classList.add('read');
+  else readBtn.classList.add('not-read');
   cancelBtn.textContent = 'delete';
-  readBtn.classList.add('read', 'btn');
+  readBtn.classList.add('btn');
   cancelBtn.classList.add('delete');
   cardBtns.classList.add('card-buttons');
   cardBtns.append(readBtn);
@@ -75,4 +81,9 @@ function newBookHandler() {
 function closeFormHandler() {
   document.getElementById('myForm').style.display = 'none';
   document.getElementById('overlay').style.display = 'none';
+}
+const readBtnChange = document.getElementById('readStatus');
+function readBtnHandler(e) {
+  e.target.classList.toggle('read');
+  e.target.classList.toggle('not-read');
 }
