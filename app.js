@@ -53,6 +53,7 @@ function printLibrary(book) {
   if (book.read === true) readBtn.classList.add('read');
   else readBtn.classList.add('not-read');
   cancelBtn.textContent = 'delete';
+  cancelBtn.addEventListener('click', deleteBtnHandler);
   readBtn.classList.add('btn');
   cancelBtn.classList.add('delete');
   cardBtns.classList.add('card-buttons');
@@ -82,8 +83,13 @@ function closeFormHandler() {
   document.getElementById('myForm').style.display = 'none';
   document.getElementById('overlay').style.display = 'none';
 }
-const readBtnChange = document.getElementById('readStatus');
+
 function readBtnHandler(e) {
   e.target.classList.toggle('read');
   e.target.classList.toggle('not-read');
+}
+
+function deleteBtnHandler(e) {
+  const deletedBook = e.target.closest('.card');
+  deletedBook.remove();
 }
