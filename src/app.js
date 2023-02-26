@@ -22,9 +22,9 @@ function addBookToLibrary() {
     book.dateOfPublication = form
       .querySelector('.year')
       .querySelector('input').value;
-    book['read'] = document.getElementById('readFormCheck').checked;
+    book.read = document.getElementById('readFormCheck').checked;
     myLibrary.push(book);
-    printLibrary(book);
+    Library.printLibrary(book);
     form.reset();
     closeFormHandler();
     form.removeEventListener('submit', submissionHandler);
